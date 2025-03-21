@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Plantenwinkel</title>
+</head>
+<body>
+  <nav>
+    <h2>Plantenwinkel</h2>
+  </nav>
+  
+  <!-- Home pagina -->
+  <div class="container" id="homePage">
+    <h2>Welkom bij de Plantenwinkel</h2>
+    <p>Koop de mooiste planten voor binnen en buiten. Wij bieden een breed assortiment aan kamerplanten, tuinplanten en exotische planten.</p>
+    <h3>Onze collecties</h3>
+    <ul>
+      <li>Kamerplanten - Perfect voor thuis of op kantoor</li>
+      <li>Tuinplanten - Ideaal voor uw buitenruimte</li>
+      <li>Vetplanten & Cactussen - Makkelijk in onderhoud</li>
+      <li>Exotische Planten - Unieke soorten van over de hele wereld</li>
+    </ul>
+    <p>Bij Plantenwinkel streven we naar de beste kwaliteit en bieden we deskundig advies over de verzorging van uw planten.</p>
+    
+    <button onclick="goToLogin()">Inloggen</button>
+    <button onclick="goToRegister()">Registreren</button>
+    <button onclick="goToShop()">Bekijk Planten</button>
+  </div>
+
+  <!-- Login pagina -->
+  <div class="container hidden" id="loginPage">
+    <h2>Inloggen</h2>
+    <input type="text" placeholder="Gebruikersnaam" id="loginUsername">
+    <input type="password" placeholder="Wachtwoord" id="loginPassword">
+    <button onclick="loginUser()">Inloggen</button>
+    <button onclick="goToHome()">Terug naar Home</button>
+    <div id="loginMessage"></div>
+  </div>
+
+  <!-- Registratie pagina -->
+  <div class="container hidden" id="registerPage">
+    <h2>Registreren</h2>
+    <input type="text" placeholder="Gebruikersnaam" id="registerUsername">
+    <input type="password" placeholder="Wachtwoord" id="registerPassword">
+    <button onclick="registerUser()">Registreren</button>
+    <button onclick="goToHome()">Terug naar Home</button>
+    <div id="registerMessage"></div>
+  </div>
+
+  <!-- Dashboard pagina -->
+  <div class="container hidden" id="dashboardPage">
+    <h2>Dashboard</h2>
+    <p id="welcomeMessage"></p>
+    <button onclick="goToShop()">Bekijk Planten</button>
+    <button onclick="logoutUser()">Uitloggen</button>
+  </div>
+
+  <!-- Shop pagina -->
+  <div class="container hidden" id="shopPage">
+    <h2>Onze Planten</h2>
+    <ul>
+      <li>🌿 Monstera - €25</li>
+      <li>🌱 Varen - €15</li>
+      <li>🌵 Cactus - €10</li>
+    </ul>
+    <button onclick="goToDashboard()">Terug naar Dashboard</button>
+    <button onclick="goToHome()">Terug naar Home</button>
+  </div>
+</body>
+<script src="js/script.js"></script>
+</html>
