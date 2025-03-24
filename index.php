@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="nl">
 <head>
     <meta charset="UTF-8">
@@ -19,12 +19,11 @@
         <h3>Onze collecties</h3>
         
         <div class="collection-list">
-            <div class="collection-item">Kamerplanten - Perfect voor huis of kantoor</div>
-            <div class="collection-item">Tuinplanten - Ideaal voor uw buitenruimten</div>
-            <div class="collection-item">Vetplanten & Cactussen - Makkelijk in onderhoud</div>
-            <div class="collection-item">Exotische planten - Unieke soorten van over de hele wereld</div>
+            <button>Kamerplanten - Perfect voor huis of kantoor</button><br>
+            <button>Tuinplanten - Ideaal voor uw buitenruimten</button><br>
+            <button>Vetplanten & Cactussen - Makkelijk in onderhoud</button><br>
+            <button>Exotische planten - Unieke soorten van over de hele wereld</button><br>
         </div>
-        
 
         <p>Bij Plantenwinkel streven we naar de beste kwaliteit en bieden we deskundig advies over de verzorging van uw planten.</p>
 
@@ -35,4 +34,4 @@
     </div>
 
 </body>
-</html>
+</html> -->
