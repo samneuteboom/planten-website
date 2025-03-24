@@ -1,25 +1,59 @@
 <?php
-session_start();
-include "config.php";
+require 'config.php'; // Databaseverbinding
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $gebruikersnaam = $_POST["gebruikersnaam"];
-    $wachtwoord = password_hash($_POST["wachtwoord"], PASSWORD_DEFAULT);
+    $gebruikersnaam = trim($_POST["gebruikersnaam"]);
+    $wachtwoord = trim($_POST["wachtwoord"]);
+    $bevestig_wachtwoord = trim($_POST["bevestig_wachtwoord"]);
 
-    $sql = "INSERT INTO gebruikers (gebruikersnaam, wachtwoord) VALUES (?, ?)";
-    $stmt = $conn->prepare($sql);
-    $stmt->bind_param("ss", $gebruikersnaam, $wachtwoord);
-
-    if ($stmt->execute()) {
-        echo "Registratie geslaagd! <a href='inlog.php'>Log in</a>";
+    // Controleer of wachtwoorden overeenkomen
+    if ($wachtwoord !== $bevestig_wachtwoord) {
+        $error = "Wachtwoorden komen niet overeen!";
     } else {
-        echo "Fout: Gebruikersnaam bestaat al!";
+        // Hash het wachtwoord
+        $hashed_password = password_hash($wachtwoord, PASSWORD_DEFAULT);
+
+        // Voeg de gebruiker toe aan de database
+        $stmt = $conn->prepare("INSERT INTO users (gebruikersnaam, wachtwoord) VALUES (?, ?)");
+        $stmt->bind_param("ss", $gebruikersnaam, $hashed_password);
+
+        if ($stmt->execute()) {
+            header("Location: login.php"); // Stuur door naar loginpagina
+            exit();
+        } else {
+            $error = "Fout bij registratie. Probeer een andere gebruikersnaam.";
+        }
     }
 }
 ?>
 
-<form method="POST">
-    <input type="text" name="gebruikersnaam" placeholder="Gebruikersnaam" required><br>
-    <input type="password" name="wachtwoord" placeholder="Wachtwoord" required><br>
-    <button type="submit">Registreren</button>
-</form>
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registreren - Plantenwinkel</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <nav>
+        <h2>Plantenwinkel</h2>
+    </nav>
+
+    <div class="container">
+        <h2>Registreren</h2>
+        <?php if (isset($error)) echo "<p style='color: red;'>$error</p>"; ?>
+        <form action="register.php" method="POST">
+            <input type="text" name="gebruikersnaam" placeholder="Gebruikersnaam" required>
+            <input type="password" name="wachtwoord" placeholder="Wachtwoord" required>
+            <input type="password" name="bevestig_wachtwoord" placeholder="Bevestig Wachtwoord" required>
+            <div class="btn-group">
+                <button type="submit">Registreren</button>
+                <button type="button" onclick="location.href='index.html'">Terug naar homepage</button>
+            </div>
+        </form>
+    </div>
+
+</body>
+</html>
