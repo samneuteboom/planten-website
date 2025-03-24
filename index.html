@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="nl">
 <head>
@@ -7,7 +10,23 @@
     <title>Home - Plantenwinkel</title>
 </head>
 <body>
-    <a href="register.php">Registreren</a> | 
-    <a href="inlog.php">Inloggen</a>
+  <nav>
+    <h2>Plantenwinkel</h2>
+    <?php if (isset($_SESSION['username'])): ?>
+        <a href="php/logout.php">Uitloggen</a>
+    <?php else: ?>
+        <a href="register.php">Registreren</a> | <a href="login.php">Inloggen</a>
+    <?php endif; ?>
+  </nav>
+  
+  <div class="container">
+    <h2>Welkom bij de Plantenwinkel</h2>
+    <?php if (isset($_SESSION['username'])): ?>
+        <p>Hallo, <?php echo htmlspecialchars($_SESSION['username']); ?>! Bekijk ons assortiment planten.</p>
+        <a href="shop.php">Bekijk Planten</a>
+    <?php else: ?>
+        <p>Koop de mooiste planten voor binnen en buiten. Registreer of log in om te bestellen.</p>
+    <?php endif; ?>
+  </div>
 </body>
 </html>
