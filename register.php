@@ -10,18 +10,26 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($wachtwoord !== $bevestig_wachtwoord) {
         $error = "Wachtwoorden komen niet overeen!";
     } else {
-        // Hash het wachtwoord
-        $hashed_password = password_hash($wachtwoord, PASSWORD_DEFAULT);
+        // **Stap 1: Controleer of de gebruikersnaam al bestaat**
+        $stmt = $conn->prepare("SELECT id FROM gebruikers WHERE gebruikersnaam = ?");
+        $stmt->bind_param("s", $gebruikersnaam);
+        $stmt->execute();
+        $stmt->store_result();
 
-        // Voeg de gebruiker toe aan de database
-        $stmt = $conn->prepare("INSERT INTO users (gebruikersnaam, wachtwoord) VALUES (?, ?)");
-        $stmt->bind_param("ss", $gebruikersnaam, $hashed_password);
-
-        if ($stmt->execute()) {
-            header("Location: login.php"); // Stuur door naar loginpagina
-            exit();
+        if ($stmt->num_rows > 0) {
+            $error = "Deze gebruikersnaam is al in gebruik. Kies een andere.";
         } else {
-            $error = "Fout bij registratie. Probeer een andere gebruikersnaam.";
+            // **Stap 2: Hash het wachtwoord en sla gebruiker op**
+            $hashed_password = password_hash($wachtwoord, PASSWORD_DEFAULT);
+            $stmt = $conn->prepare("INSERT INTO gebruikers (gebruikersnaam, wachtwoord) VALUES (?, ?)");
+            $stmt->bind_param("ss", $gebruikersnaam, $hashed_password);
+
+            if ($stmt->execute()) {
+                header("Location: inlog.php"); // Stuur door naar loginpagina
+                exit();
+            } else {
+                $error = "Fout bij registratie. Probeer het later opnieuw.";
+            }
         }
     }
 }

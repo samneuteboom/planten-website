@@ -4,7 +4,7 @@ $loginError = "";
 
 // Controleer of het formulier is verzonden
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    require "db.php"; // Databaseverbinding
+    require "config.php"; // Databaseverbinding
 
     $gebruikersnaam = trim($_POST["gebruikersnaam"]);
     $wachtwoord = trim($_POST["wachtwoord"]);
@@ -21,7 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // Controleer wachtwoord
             if (password_verify($wachtwoord, $row["wachtwoord"])) {
                 $_SESSION["gebruiker"] = $row["gebruikersnaam"];
-                header("Location: dashboard.php");
+                header("Location: homepage.php");
                 exit();
             } else {
                 $loginError = "Ongeldige gebruikersnaam of wachtwoord.";
