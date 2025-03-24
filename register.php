@@ -33,7 +33,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registreren - Plantenwinkel</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/register.css">
 </head>
 <body>
 
@@ -42,7 +42,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </nav>
 
     <div class="container">
-        <h2>Registreren</h2>
+        <h3>Registreren</h3>
         <?php if (isset($error)) echo "<p style='color: red;'>$error</p>"; ?>
         <form action="register.php" method="POST">
             <input type="text" name="gebruikersnaam" placeholder="Gebruikersnaam" required>

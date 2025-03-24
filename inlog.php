@@ -50,7 +50,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </nav>
 
     <div class="container" id="loginPage">
-        <h2>Login</h2>
+        <h3>Login</h3>
         <div class="login-box">
             <?php if ($loginError): ?>
                 <p class="error"><?= $loginError ?></p>
