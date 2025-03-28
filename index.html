@@ -4,29 +4,13 @@ session_start();
 <!DOCTYPE html>
 <html lang="nl">
 <head>
-    <link rel="stylesheet" href="css/style.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home - Plantenwinkel</title>
+    <title>Plantenwinkel</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <nav>
-    <h2>Plantenwinkel</h2>
-    <?php if (isset($_SESSION['username'])): ?>
-        <a href="php/logout.php">Uitloggen</a>
-    <?php else: ?>
-        <a href="register.php">Registreren</a> | <a href="login.php">Inloggen</a>
-    <?php endif; ?>
-  </nav>
-  
-  <div class="container">
-    <h2>Welkom bij de Plantenwinkel</h2>
-    <?php if (isset($_SESSION['username'])): ?>
-        <p>Hallo, <?php echo htmlspecialchars($_SESSION['username']); ?>! Bekijk ons assortiment planten.</p>
-        <a href="shop.php">Bekijk Planten</a>
-    <?php else: ?>
-        <p>Koop de mooiste planten voor binnen en buiten. Registreer of log in om te bestellen.</p>
-    <?php endif; ?>
-  </div>
+    <a href="register.php">Registreren</a> | 
+    <a href="inlog.php">Inloggen</a>
 </body>
 </html>
