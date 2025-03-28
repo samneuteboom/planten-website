@@ -38,10 +38,10 @@ $user = $result->fetch_assoc();
         <h3>Onze collecties</h3>
         
         <div class="collection-list">
-            <div class="collection-item">Kamerplanten - Perfect voor huis of kantoor</div>
-            <div class="collection-item">Tuinplanten - Ideaal voor uw buitenruimten</div>
-            <div class="collection-item">Vetplanten & Cactussen - Makkelijk in onderhoud</div>
-            <div class="collection-item">Exotische planten - Unieke soorten van over de hele wereld</div>
+        <div class="collection-item">Kamerplanten - Goed voor in het huis of in het kantoor</div>
+            <div class="collection-item">Tuinplanten - Ideaal voor in de tuin</div>
+            <div class="collection-item">Cactussen - Weinig onderhoud nodig</div>
+            <div class="collection-item">Exotische planten - Unieke soorten te vinden over de hele wereld</div>
         </div>
         
 
