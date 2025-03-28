@@ -1,4 +1,12 @@
 <?php
+//---------------------------//
+// Naam script     : inlog.php
+// Omschrijving     : de inlog pagina
+// Naam ontwikkelaar : sam
+//---------------------------//
+?>
+
+<?php
 session_start();
 $loginError = "";
 
