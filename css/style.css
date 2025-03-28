@@ -1,3 +1,8 @@
+/*---------------------------//
+// Naam script     : style.css
+// Omschrijving     : style van de homepage
+// Naam ontwikkelaar : vooral sam en een beetje semere
+//---------------------------*/
 body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f4f4f4; }
 .container { width: 80%; margin: auto; padding: 20px; text-align: center; background: white; box-shadow: 0 0 10px rgba(0,0,0,0.1); border-radius: 10px; margin-top: 20px; }
 .hidden { display: none; }
