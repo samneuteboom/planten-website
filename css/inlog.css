@@ -1,3 +1,9 @@
+
+/*---------------------------//
+// Naam script     : inlog.css
+// Omschrijving     : style van de inlogpagina
+// Naam ontwikkelaar : vooral semere en een beetje sam
+//---------------------------*/
 /* Algemene stijlen */
 body {
     font-family: Arial, sans-serif;
@@ -44,7 +50,7 @@ input {
     border-radius: 5px;
     font-size: 16px;
     text-align: center;
-    background: #e8f5e9; /* Lichtgroene achtergrond zoals in je collectie-items */
+    background: #e8f5e9; 
 }
 
 /* Knoppen */

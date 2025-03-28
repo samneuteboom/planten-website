@@ -1,6 +1,13 @@
 <?php
+//---------------------------//
+// Naam script     : config.php
+// Omschrijving     : het configurerem van de database
+// Naam ontwikkelaar : sam
+//---------------------------//
+?>
+<?php
 $host = "localhost";
-$user = "root"; // Standaard bij XAMPP
+$user = "root";
 $pass = "";
 $dbname = "plantenwinkel";
 
