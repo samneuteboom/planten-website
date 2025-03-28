@@ -1,4 +1,12 @@
 <?php
+//---------------------------//
+// Naam script     : register.php
+// Omschrijving     : de pagina waar je kan registreren
+// Naam ontwikkelaar : sam
+//---------------------------//
+?>
+
+<?php
 require 'config.php'; // Databaseverbinding
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
