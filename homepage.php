@@ -1,4 +1,11 @@
 <?php
+//---------------------------//
+// Naam script     : homepage.php
+// Omschrijving     : de homepagina waar je terecht komt na het inloggen
+// Naam ontwikkelaar : sam en semere
+//---------------------------//
+?>
+<?php
 session_start();
 require 'config.php'; // Databaseverbinding
 
